@@ -11,7 +11,7 @@ class CookingsController < ApplicationController
       redirect_to action: 'index'
    end
    def pasta
-      @cookings = Cooking.where(chef: "pasta")#データベースのsheffカラムにpastaの値があるものを全て取得
+      @cookings = Cooking.where(chef: "pasta")
    end
    
    private

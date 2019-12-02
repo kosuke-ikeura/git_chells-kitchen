@@ -6,7 +6,7 @@ class CookingsController < ApplicationController
       @cooking = Cooking.new
    end
    def create
-      Cooking.create(name: cooking_params[:name], image: cooking_params[:image], text: cooking_params[:text], user_id: current_user.id)
+      Cooking.create(name: cooking_params[:name], image: cooking_params[:image], text: cooking_params[:text], user_id: current_user.id, chef: cooking_params[:chef])
       #Tweet.create(image: tweet_params[:image], text: tweet_params[:text], user_id: current_user.id)
       redirect_to action: 'index'
    end
@@ -16,6 +16,6 @@ class CookingsController < ApplicationController
    
    private
    def cooking_params
-      params.require(:cooking).permit(:name, :image, :text)
+      params.require(:cooking).permit(:name, :image, :text, :chef)
    end
 end

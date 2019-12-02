@@ -1,0 +1,9 @@
+<%= form_for @cooking do |f| %>
+   <%= f.label :name, "レシピ名" %>
+   <%= f.text_field :name %>
+   <%= f.label :image, "画像"%>
+   <%= f.file_field :image %>
+   <%= f.label :text, "こだわったところ" %>
+   <%= f.text_area :text %>
+   <%= f.submit "投稿する" %>
+<% end %>

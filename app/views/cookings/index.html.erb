@@ -1,0 +1,9 @@
+<% @cookings.each do |cooking| %>
+   <p><%= cooking.name %></p>
+   <p><%= cooking.user_id %>
+   <p><%= image_tag cooking.image.url %></p>
+<% end %>
+<% if user_signed_in? %>
+   <p><%= current_user.id %></p>
+<% end %>
+<%#= link_to "パスタ部門" #./cookings/pastaへのpath %>

@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 2019_12_17_143754) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.string "chef"
-    t.string "material_m"
-    t.string "material_a"
     t.text "image_1"
     t.text "text_1"
     t.text "image_2"
@@ -40,6 +38,8 @@ ActiveRecord::Schema.define(version: 2019_12_17_143754) do
     t.text "text_8"
     t.text "image_9"
     t.text "text_10"
+    t.string "material_a"
+    t.string "material_m"
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

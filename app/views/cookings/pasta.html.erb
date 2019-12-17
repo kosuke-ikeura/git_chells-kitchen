@@ -1,5 +1,5 @@
 <% @cookings.each do |cooking| %>
    <p><%= cooking.name %></p>
-   <p><%= image_tag cooking.image.url %></p>
+   <p><%= image_tag cooking.image.thumb.url %></p>
    <p><%= cooking.text %></p>
 <% end %>

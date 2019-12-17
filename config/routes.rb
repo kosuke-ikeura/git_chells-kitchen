@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/cookings/new' => 'cookings#new'
   post '/cookings' => 'cookings#create'
   get '/cookings/pasta' => 'cookings#pasta'
+  get '/users/:id' => 'users#show'
 end

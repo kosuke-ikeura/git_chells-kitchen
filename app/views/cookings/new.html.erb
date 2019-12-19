@@ -9,37 +9,13 @@
    <h2>画像</h2>
       <%= f.label :image, "画像"%>
       <%= f.file_field :image %>
-   <h2>材料と分量</h2>
-      <%= f.label :material_m,  "材料"%>
-      <%= f.text_field :material_m %>
-      <%= f.text_field :material_m %>
-      <%= f.text_field :material_m %>
-      <%= f.text_field :material_m %>
-      <%= f.label :material_a, "分量" %>
-      <%= f.text_field :material_a %>
-      <%= f.text_field :material_a %>
-      <%= f.text_field :material_a %>
-      <%= f.text_field :material_a %>
-      <%= f.text_field :material_a %>
-   <h2>作り方</h2>
-   <p>1</p>
-      <%= f.label :image_1, "画像"%>
-      <%= f.file_field :image_1 %>
-   <p>2</p>
-      <%= f.label :image_2, "画像"%>
-      <%= f.file_field :image_2 %>
-   <p>1</p>
-      <%= f.label :image_3, "画像"%>
-      <%= f.file_field :image_1 %>
-   <p>1</p>
-      <%= f.label :image_4, "画像"%>
-      <%= f.file_field :image_1 %>
-   <p>1</p>
-      <%= f.label :image_5, "画像"%>
-      <%= f.file_field :image_1 %>
-   <p>1</p>
-      <%= f.label :image_6, "画像"%>
-      <%= f.file_field :image_1 %>
+   <h2>材料</h2>
+      <%= f.fields_for :materials do |m| %>
+         <%= m.label :material %>
+         <%= m.text_field :material, placeholder: '卵' %>
+         <%= m.label :amount %>
+         <%= m.text_field :amount, placeholder: '3個' %>
+      <% end %>
    <h2>一言！！</h2>
       <%= f.label :text, "一言" %>
       <%= f.text_field :text%>

@@ -10,14 +10,75 @@
       <%= f.label :image, "画像"%>
       <%= f.file_field :image %>
    <h2>材料</h2>
-      <%= f.fields_for :materials do |m| %>
-         <%= m.label :material %>
-         <%= m.text_field :material, placeholder: '卵' %>
-         <%= m.label :amount %>
-         <%= m.text_field :amount, placeholder: '3個' %>
-      <% end %>
+      <table>
+         <tbody>
+            <tr>
+               <th>材料</th>
+               <th>分量</th>
+            </tr>
+            <%= f.nested_fields_for :materials, wrapper_tag: :tr do |m| %>
+               <td><%= m.text_field :material, placeholder: '卵' %></td>
+               <td><%= m.text_field :amount, placeholder: '3個' %></td>
+               <td><%= m.remove_nested_fields_link 'Delete', role: 'button' %></td>
+            <% end %>
+         </tbody>
+      </table>
+      <%= f.add_nested_fields_link :material, 'Add new', role: 'button' %>
    <h2>一言！！</h2>
       <%= f.label :text, "一言" %>
       <%= f.text_field :text%>
    <%= f.submit "投稿する" %>
 <% end %>
+
+<!--<%#= form_for(@hotel, html:{class: 'form-horizontal'}) do |f| %>-->
+<!--  <table class="table table-striped table-bordered table-hover">-->
+<!--          <tbody>-->
+<!--            <tr>-->
+<!--               <th>お部屋タイプ名</th>-->
+<!--               <th>定員人数</th>-->
+<!--               <th>メモ</th>-->
+<!--               <th>Action</th>-->
+<!--            </tr>-->
+<!--            <%#= f.nested_fields_for :roomtypes, wrapper_tag: :tr do |q| %>-->
+<!--                <td><%#= q.text_field   :name,     class: 'form-control' %></td>-->
+<!--                <td><%#= q.number_field :capacity, class: 'form-control' %></td>-->
+<!--                <td><%#= q.text_field   :note,     class: 'form-control' %></td>-->
+<!--                <td><%#= q.remove_nested_fields_link 'Delete', class: 'btn btn-danger', role: 'button' %></td>-->
+<!--            <%# end %>-->
+<!--        </tbody>-->
+<!--      </table>-->
+<!--      <%#= f.add_nested_fields_link :roomtypes, 'Add new', class: 'btn btn-primary', role: 'button' %>-->
+<!--<%# end %>-->
+
+<!--<%#= form_for @cooking do |f| %>-->
+<!--<table>-->
+<!--   <tbody>-->
+<!--      <tr>-->
+<!--         <th>レシピ名</th>-->
+<!--         <th>画像</th>-->
+<!--         <th>材料</th>-->
+<!--         <th>一言！</th>-->
+<!--      </tr>-->
+<!--      <td>-->
+<!--         <%#= f.label :name, "レシピ名" %>-->
+<!--         <%#= f.text_field :name %>-->
+<!--      </td>-->
+<!--      <td>-->
+<!--         <%#= f.label :image, "画像"%>-->
+<!--         <%#= f.file_field :image %>-->
+<!--      </td>-->
+<!--      <td>-->
+<!--         <%#= f.nested_fields_for :materials, wrapper_tag: :th do |m| %>-->
+<!--            <%#= m.label :material %>-->
+<!--            <%#= m.text_field :material, placeholder: '卵' %>-->
+<!--            <%#= m.label :amount %>-->
+<!--            <%#= m.text_field :amount, placeholder: '3個' %>-->
+            
+<!--         <%# end %>-->
+<!--      </td>-->
+<!--      <td>-->
+<!--         <%#= f.label :text, "一言" %>-->
+<!--         <%#= f.text_field :text%>-->
+<!--      </td>-->
+<!--   </tbody>-->
+<!--</table>-->
